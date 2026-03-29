@@ -5,69 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dotly</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>Dotly</h1>
-        <p>Developed by Diego Cuentas</p>
-    </header>
 
-    <!-- Description Section -->
-    <section id="description">
-        <h2>Description</h2>
-        <p>Dotly is a graphical tool built in Python that allows generating dotplots from two FASTA files. Quickly and intuitively visualize similarities and differences between sequences.</p>
-    </section>
+<!-- HEADER -->
+<header>
+    <div class="header-content">
+        <div class="header-text">
+            <h1>Dotly</h1>
+            <p>Developed by Diego Cuentas</p>
+        </div>
+        <a href="https://github.com/Lestibournes74" target="_blank" class="github-link" aria-label="GitHub">
+            <svg viewBox="0 0 16 16"  width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+                     0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                     -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                     0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44
+                     1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+                     0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a>
+    </div>
+</header>
 
-    <!-- Tutorial Section -->
-    <section id="tutorial">
-        <h2>Quick Tutorial</h2>
-        <ol>
-            <li>
-                Open the program by running <code>main.py</code> in Python.
-                <div class="tutorial-images">
-                    <img src="images/01_interface.png" alt="Initial program interface">
-                </div>
-            </li>
-            <li>
-                Click the "Load FASTA" buttons to select your two FASTA files from your computer.
-                <div class="tutorial-images">
-                    <img src="images/02_load_fasta.png" alt="Load FASTA files dialog">
-                </div>
-            </li>
-            <li>
-                Verify that both sequences are loaded in the interface.
-                <div class="tutorial-images">
-                    <img src="images/03_files_uploaded.png" alt="Both FASTA files uploaded">
-                </div>
-            </li>
-            <li>
-                Click "Generate DotPlot" to visualize the comparison. You can adjust the window size and stringency parameters to modify the sensitivity of the dotplot.
-                <div class="tutorial-images">
-                    <img src="images/04_dotplot_generated.png" alt="Generated dotplot">
-                </div>
-            </li>
-            <li>
-                Click "Download" to save the resulting dotplot image.
-                <div class="tutorial-images">
-                    <img src="images/05_save_dotplot.png" alt="Save dotplot image">
-                </div>
-            </li>
-        </ol>
-    </section>
+<!-- DESCRIPTION -->
+<section id="description">
+    <h2>Description</h2>
+    <p>
+        Dotly is a graphical tool that allows generating dotplots 
+        from two FASTA files. Quickly and intuitively visualize similarities 
+        and differences between sequences.
+    </p>
+</section>
 
-    <!-- Download Section -->
-    <section id="download">
-        <h2>Download</h2>
-        <p>Download the source code of the program:</p>
-        <a href="https://github.com/Lestibournes74/dotly/blob/main/src/main.py" class="download-button">Download Source Code</a>
-    </section>
+<!-- WEB APP -->
+<section id="web-app">
+    <h2>Try Dotly Online</h2>
 
-    <footer>
-        <p>&copy; 2026 Diego Cuentas. Open Source Project.</p>
-    </footer>
+    <div id="main-container">
 
-    <!-- Optional JS -->
-    <script src="script.js"></script>
+        <!-- LEFT PANEL -->
+        <div id="left-panel">
+            <label>Sequence 1:</label>
+            <textarea id="seq1" placeholder="Paste sequence 1 or load FASTA"></textarea>
+            <input type="file" id="file1" accept=".fasta,.fa">
+
+            <label>Sequence 2:</label>
+            <textarea id="seq2" placeholder="Paste sequence 2 or load FASTA"></textarea>
+            <input type="file" id="file2" accept=".fasta,.fa">
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div id="right-panel">
+
+            <label>Chart title:</label>
+            <input type="text" id="title" placeholder="DotPlot">
+
+            <div class="axes-container">
+                <div>
+                    <label>X-axis label:</label>
+                    <input type="text" id="xlabel" placeholder="Sequence 1">
+                </div>
+
+                <div>
+                    <label>Y-axis label:</label>
+                    <input type="text" id="ylabel" placeholder="Sequence 2">
+                </div>
+            </div>
+
+            <div class="params-container">
+                <div>
+                    <label>Window size:</label>
+                    <input type="number" id="window" min="1" max="100" value="3">
+                </div>
+
+                <div>
+                    <label>Stringency:</label>
+                    <input type="number" id="stringency" min="1" max="100" value="3">
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <button id="generate-btn">Generate DotPlot</button>
+                <button id="download-btn">Download</button>
+            </div>
+
+            <div id="plot"></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+    <h2>Download Desktop Version</h2>
+    <p>Download the source code <code>main.py</code>:</p>
+    <a href="https://github.com/Lestibournes74/dotly/blob/main/dotplot/src/main.py" class="download-button">
+        Download Source Code
+    </a>
+</section>
+
+<!-- INSTALLATION -->
+<section id="installation">
+    <h2>Installation</h2>
+    <ol>
+        <li>Download the <code>main.py</code> source code from this repository.</li>
+        <li>Install the required packages:</li>
+        <pre><code>pip install pyqt5 matplotlib</code></pre>
+        <li>Run the application from your terminal:</li>
+        <pre><code>python main.py</code></pre>
+    </ol>
+</section>
+
+<!-- TUTORIAL -->
+<section id="tutorial">
+    <h2>Desktop App Tutorial</h2>
+    <ol>
+        <li>
+            Open the program by running <code>main.py</code> in Python.
+            <div class="tutorial-images">
+                <img src="images/01_interface.png" alt="Initial program interface">
+            </div>
+        </li>
+        <li>
+            Click the "Load FASTA" buttons to select your two FASTA files.
+            <div class="tutorial-images">
+                <img src="images/02_load_fasta.png" alt="Load FASTA files dialog">
+            </div>
+        </li>
+        <li>
+            Verify that both sequences are loaded.
+            <div class="tutorial-images">
+                <img src="images/03_files_uploaded.png" alt="Files uploaded">
+            </div>
+        </li>
+        <li>
+            Click "Generate DotPlot" and adjust parameters.
+            <div class="tutorial-images">
+                <img src="images/04_dotplot_generated.png" alt="Generated dotplot">
+            </div>
+        </li>
+        <li>
+            Click "Download" to save the image.
+            <div class="tutorial-images">
+                <img src="images/05_save_dotplot.png" alt="Save dotplot">
+            </div>
+        </li>
+    </ol>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Diego Cuentas. Open Source Project.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

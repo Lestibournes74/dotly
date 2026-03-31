@@ -3,6 +3,7 @@
 **Interactive dotplot tool for DNA and protein sequence comparison**
 
 🔗 Try it online: https://lestibournes74.github.io/dotly/
+
 ⬇️ Download desktop version: https://github.com/Lestibournes74/dotly/releases
 
 ---

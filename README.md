@@ -1,77 +1,54 @@
 # Dotly
 
-**Interactive dotplot tool for DNA and protein sequence comparison**
-
-🔗 Try it online: https://dcuentasf.github.io/dotly/
-
-⬇️ Download desktop version: https://github.com/dcuentasf/dotly/releases
-
----
-
-## 🧬 What is Dotly?
-
-Dotly is a simple and interactive tool to visualize similarities between biological sequences using dotplots.
-
-You can compare two sequences (DNA or protein) from FASTA files and explore patterns such as repeats, inversions, and conserved regions.
+**Dotly**, developed with Python, is a graphical tool that allows generating dotplots from two FASTA files. Quickly and intuitively visualize similarities and differences between sequences.
 
 ---
 
 ## ⚙️ Features
 
-* Upload two FASTA files
-* Generate dotplots instantly
-* Adjustable:
+* Upload two FAST files or paste the sequences
+* Personalise main title and axis labels
+* Set window size and stringency
+* Download dotplot
+  
+---
 
-  * Window size
-  * Stringency
-* Web-based version (no installation required)
-* Desktop version in Python
+## 📌 UI
+
+<img width="1190" height="627" alt="interface" src="https://github.com/user-attachments/assets/7184b887-4611-42f8-83a9-a6aca3fda398" />
 
 ---
 
 ## 🚀 How to use
 
-### Web version
-
-1. Open the online tool
-2. Upload two FASTA files
-3. Adjust parameters if needed
-4. Generate the dotplot
-
-### Desktop version
-
-1. Download from Releases
-2. Run the Python script
-3. Provide input FASTA files
-4. Adjust parameters
+1. Download from releases
+2. Run the .exe
+3. Now it is ready to use!
 
 ---
 
-## 📊 What can you analyze?
+## 🛠️ Built With
 
-* Sequence similarity
-* Repeats
-* Inversions
-* Conserved regions
+* Python
+* (PyQt)
 
 ---
 
-## 🧠 Why Dotly?
+## 🎯 Purpose
 
-Dotly focuses on simplicity and accessibility:
-
-* No complex setup
-* Fast visualization
-* Works directly in the browser
+Dotly was created as a lightweight alternative to server dependent dotplot generators and non-friendly desktop dotplot apps, focusing on intuitive UI.
 
 ---
 
-## 📌 Notes
+## 📌 Future Improvements
 
-Dotly is designed as a lightweight alternative for quick dotplot analysis and visualization.
+* Add version for linux
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is open source and available under the MIT License.
+
+---
+

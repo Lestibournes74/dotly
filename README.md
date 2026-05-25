@@ -6,7 +6,7 @@
 
 ## ⚙️ Features
 
-* Upload two FAST files or paste the sequences
+* Upload two FASTA files or paste the sequences
 * Personalise main title and axis labels
 * Set window size and stringency
 * Download dotplot
@@ -15,7 +15,7 @@
 
 ## 📌 UI
 
-<img width="1190" height="627" alt="interface" src="https://github.com/user-attachments/assets/7184b887-4611-42f8-83a9-a6aca3fda398" />
+<img width="993" height="879" alt="image" src="https://github.com/user-attachments/assets/01a932e4-3fdf-4ce7-9ad7-1855faf22afb" />
 
 ---
 
@@ -37,12 +37,6 @@
 ## 🎯 Purpose
 
 Dotly was created as a lightweight alternative to server dependent dotplot generators and non-friendly desktop dotplot apps, focusing on intuitive UI.
-
----
-
-## 📌 Future Improvements
-
-* Add version for linux
 
 ---
 
